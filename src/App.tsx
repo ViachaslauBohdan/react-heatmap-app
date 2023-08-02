@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 
 import { ButtonList } from "./components/buttonList/ButtonList";
-import { useReadDataSource } from "./hooks/useReadDataSource/useReadDataSource";
+import { useReadDataSource } from "./hooks/useReadDataSource/";
 
 function App() {
   const {
