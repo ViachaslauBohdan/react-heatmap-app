@@ -1,4 +1,3 @@
-import React from "react";
 import { HighchartsWidget, HandsontableWidget } from "./widgets";
 import {
   Alert,
@@ -11,10 +10,17 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import * as dataSource from "./dataSources/versions.json";
-const { tableHeaders, tableData } = dataSource;
+
+import { ButtonList } from "./components/buttonList/ButtonList";
+import { useReadDataSource } from "./hooks/useReadDataSource/useReadDataSource";
 
 function App() {
+  const {
+    dataSourceSelected,
+    dataSource: { tableHeaders, tableData },
+    onButtonClick,
+  } = useReadDataSource();
+
   return (
     <Box className="App">
       <AppBar position="static">
@@ -49,7 +55,15 @@ function App() {
       </AppBar>
       <Container sx={{ paddingTop: 3 }} maxWidth="xl">
         <Grid container spacing={3}>
+          <Grid item lg={12} mb={3}>
+            <ButtonList onButtonClick={onButtonClick} />
+          </Grid>
+        </Grid>
+        <Grid container spacing={3}>
           <Grid item lg={12}>
+            <Typography variant="h5" sx={{ marginBottom: 3 }}>
+              Data Source selected: {dataSourceSelected.toUpperCase()}
+            </Typography>
             <Typography variant="h5" sx={{ marginBottom: 1 }}>
               Highcharts Heatmap
             </Typography>

@@ -1,45 +1,21 @@
-import React from "react";
-import {
-  Box,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
 import { HeatmapProps } from "./Heatmap.props";
+import { HotTable } from "@handsontable/react";
+import { registerAllModules } from "handsontable/registry";
+import "handsontable/dist/handsontable.full.min.css";
 
-export const HandsontableWidget = (props: HeatmapProps) => {
-  const { tableData, tableHeaders } = props;
+registerAllModules();
 
-  const showColHeader = (item: string) => {
-    return <TableCell>{item}</TableCell>;
-  };
-
-  const showColHeaders = () => {
-    return (
-      <TableRow>{tableHeaders.map((header) => showColHeader(header))}</TableRow>
-    );
-  };
-
-  const showRowItem = (item: Array<string | number>) => {
-    return item.map((x) => <TableCell>{x}</TableCell>);
-  };
-
-  const showRowData = () => {
-    return tableData.map((x) => <TableRow>{showRowItem(x)}</TableRow>);
-  };
-
+export const HandsontableWidget = ({
+  tableHeaders,
+  tableData,
+}: HeatmapProps) => {
   return (
-    <Box>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>{showColHeaders()}</TableHead>
-          <TableBody>{showRowData()}</TableBody>
-        </Table>
-      </TableContainer>
-    </Box>
+    <HotTable
+      data={[tableHeaders, ...tableData]}
+      rowHeaders={true}
+      colHeaders={true}
+      height="auto"
+      licenseKey="non-commercial-and-evaluation"
+    />
   );
 };
