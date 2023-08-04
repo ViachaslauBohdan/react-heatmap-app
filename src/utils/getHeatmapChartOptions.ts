@@ -1,5 +1,6 @@
 import { HeatmapProps } from "../widgets";
 import { getHeatmapSeries } from "./getHeatmapSeries";
+import { getMinChartValue } from "./getMinChartValue";
 
 export function getHeatmapChartOptions({
   tableHeaders,
@@ -8,15 +9,20 @@ export function getHeatmapChartOptions({
   return {
     xAxis: {
       categories: tableHeaders.slice(1),
-      title: { text: tableHeaders[0] },
       opposite: false,
     },
     yAxis: {
+      title: {
+        text: "",
+      },
       categories: tableData.map((data) => data[0] as string),
       reversed: true,
     },
+    title: {
+      text: tableHeaders[0],
+    },
     colorAxis: {
-      min: 0,
+      min: getMinChartValue(tableData),
       minColor: "#ffffff",
       maxColor: "#fa4b42",
     },

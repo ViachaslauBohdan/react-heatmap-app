@@ -8,6 +8,7 @@ export function getChartOptions(chartOptions: Highcharts.Options) {
     },
 
     title: {
+      text: "",
       style: {
         fontSize: "1em",
       },
@@ -22,7 +23,6 @@ export function getChartOptions(chartOptions: Highcharts.Options) {
     },
 
     colorAxis: {
-      min: 0,
       minColor: "#FF907400",
       maxColor: "#6F000600",
     },

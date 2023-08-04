@@ -14,6 +14,7 @@ export const HandsontableWidget = ({
       data={[tableHeaders, ...tableData]}
       rowHeaders={true}
       colHeaders={true}
+      minRows={10}
       height="auto"
       licenseKey="non-commercial-and-evaluation"
     />
