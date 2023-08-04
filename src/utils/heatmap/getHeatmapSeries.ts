@@ -1,4 +1,4 @@
-import { HeatmapProps } from "../widgets";
+import { HeatmapProps } from "../../widgets";
 
 type HeatmapSerieItem = [number, number, number];
 type HeatmapSeries = Array<HeatmapSerieItem>;

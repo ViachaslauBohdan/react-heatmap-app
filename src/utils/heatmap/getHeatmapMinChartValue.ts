@@ -1,4 +1,4 @@
-import { HeatmapProps } from "../widgets";
+import { HeatmapProps } from "../../widgets";
 
 export function getMinChartValue(tableData: HeatmapProps["tableData"]) {
   let min = tableData[0][1];

@@ -1,6 +1,6 @@
-import { HeatmapProps } from "../widgets";
+import { HeatmapProps } from "../../widgets";
 import { getHeatmapSeries } from "./getHeatmapSeries";
-import { getMinChartValue } from "./getMinChartValue";
+import { getMinChartValue } from "./getHeatmapMinChartValue";
 
 export function getHeatmapChartOptions({
   tableHeaders,

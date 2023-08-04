@@ -12,7 +12,7 @@ const dataSourceMatrix: { [key in DataSource]: any } = {
 };
 
 export function useReadDataSource() {
-  const [dataSourceSelected, setDataSource] = useState<DataSource>("products");
+  const [dataSourceSelected, setDataSource] = useState<DataSource>("versions");
 
   const onButtonClick = (dataSource: DataSource) => {
     setDataSource(dataSource);

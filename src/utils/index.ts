@@ -1,3 +1,3 @@
 export * from "./getChartOptions";
-export * from "./getHeatmapSeries";
-export * from "./getHeatmapChartOptions";
+export * from "./heatmap/getHeatmapSeries";
+export * from "./heatmap";
